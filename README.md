@@ -28,10 +28,10 @@ if (getAlliesCount() < 2 and distance > 1) // on est en équipe
 }
 if (getAlliesCount() < 2 and deplacement <= 0) {
 
-	boostAgilite = useChip(CHIP_STRETCHING, moi); //retourne 1 juste après avoir réussit et -3 après pendant 3 tours
+	boostAgilite = useChip(CHIP_STRETCHING, moi); //retourne 1 après avoir réussit, -3 pendant 3 tours
 	soinFort = useChip(CHIP_CURE, moi); //1 fois 1 et 1 fois -3
 	soinFaible = useChip(CHIP_BANDAGE, moi); //1 à chaque fois
-	defenseFaible = useChip(CHIP_HELMET, moi); //retourne 1 juste après avoir réussit et -3 après pendant 3 tours
+	defenseFaible = useChip(CHIP_HELMET, moi); //retourne 1 après avoir réussit,-3 pendant 3 tours
 	
 }
 if (getAlliesCount() < 2 and soinFort == 0)//si fail puce
