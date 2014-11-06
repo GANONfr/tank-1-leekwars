@@ -18,46 +18,56 @@ var defenseFaible;
 var boostAgilite;
 var mur;
 
-if (getAlliesCount() < 2 and distance > 1) // on est en équipe
+if (saVie < 130 and distance ==1) {
+	setWeapon(WEAPON_MACHINE_GUN);
+	useWeapon(enemy);
+	useWeapon(enemy);
+}
+
+
+
+
+
+if (getAlliesCount()  >= 1 and distance > 1 and (saVie = (saVie/2)) and getLife() > 155) // on est en équipe
 {
 	deplacement = moveToward(enemy);
 	useChip(CHIP_ICE, enemy);
-	useChip(CHIP_ICE, enemy);
-	say("Viens voir papa " + nomEnemie);
+	useChip(CHIP_ROCK, enemy);
+	//say("Viens voir papa " + nomEnemie);
 	
 }
-if (getAlliesCount() < 2 and deplacement <= 0) {
+if (getAlliesCount() >= 1 and deplacement <= 0 ) {
 
-	boostAgilite = useChip(CHIP_STRETCHING, moi); //retourne 1 après avoir réussit, -3 pendant 3 tours
+	boostAgilite = useChip(CHIP_STRETCHING, moi); //retourne 1 juste après avoir réussit et -3 après pendant 3 tours
 	soinFort = useChip(CHIP_CURE, moi); //1 fois 1 et 1 fois -3
 	soinFaible = useChip(CHIP_BANDAGE, moi); //1 à chaque fois
-	defenseFaible = useChip(CHIP_HELMET, moi); //retourne 1 après avoir réussit,-3 pendant 3 tours
+	defenseFaible = useChip(CHIP_HELMET, moi); //retourne 1 juste après avoir réussit et -3 après pendant 3 tours
 	
 }
-if (getAlliesCount() < 2 and soinFort == 0)//si fail puce
+if (getAlliesCount() >= 1 and soinFort == 0)//si fail puce
 {
 	soinFort = useChip(CHIP_CURE, moi);
 }
-if (getAlliesCount() < 2 and defenseFaible == 0)//si fail puce
+if (getAlliesCount() >= 1 and defenseFaible == 0)//si fail puce
 {
 	defenseFaible = useChip(CHIP_HELMET, moi);//si fail puce
 }
-if (getAlliesCount() < 2 and soinFaible == 0)
+if (getAlliesCount() >= 1 and soinFaible == 0)
 {
 	soinFaible = useChip(CHIP_BANDAGE, moi);
 }
 
-if (getAlliesCount() < 2 and soinFort == -3)//quand puce cure est en cooldown
+if (getAlliesCount() >= 1 and soinFort == -3)//quand puce cure est en cooldown
 {
 	mur = useChip(CHIP_WALL, moi);
 }
 
-if (getAlliesCount() < 2 and mur == -3)//quand cure est mur sont cooldown
+if (getAlliesCount() >= 1 and mur == -3)//quand cure est mur sont cooldown
 {
 	useChip(CHIP_ICE, enemy);
 	
 }
-if (getAlliesCount() < 2 and defenseFaible == -3)//quand helmet est cooldown
+if (getAlliesCount() >= 1 and defenseFaible == -3)//quand helmet est cooldown
 {
 	useChip(CHIP_ICE, enemy);
 }
