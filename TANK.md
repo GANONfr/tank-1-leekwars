@@ -1,7 +1,7 @@
 tank-1-leekwars
 ===============
 
-pour jouer en team full puces
+pour jouer en full puces
 
 var moi = getLeek();
 var enemy = getNearestEnemy();
@@ -17,22 +17,35 @@ var soinFort;
 var defenseFaible;
 var boostAgilite;
 var mur;
+var lol = 0;
 
-if (saVie < 130 and distance ==1) {
-	setWeapon(WEAPON_MACHINE_GUN);
+
+
+if (getLife() < 90 ) 
+{
+	moveAwayFrom(enemy);
+	useChip(CHIP_CURE, moi);
+	useChip(CHIP_BANDAGE, moi);
+	
+}
+
+if (getTurn() ==1 )
+{
+	setWeapon(WEAPON_MAGNUM);
+}
+
+if (saVie < 130 and distance ==1)
+{
 	useWeapon(enemy);
 	useWeapon(enemy);
 }
-
-
-
-
 
 if (getAlliesCount()  >= 1 and distance > 1 and (saVie = (saVie/2)) and getLife() > 155) // on est en équipe
 {
 	deplacement = moveToward(enemy);
 	useChip(CHIP_ICE, enemy);
-	useChip(CHIP_ROCK, enemy);
+	useChip(CHIP_ICE, enemy);
+	
 	//say("Viens voir papa " + nomEnemie);
 	
 }
@@ -64,7 +77,7 @@ if (getAlliesCount() >= 1 and soinFort == -3)//quand puce cure est en cooldown
 
 if (getAlliesCount() >= 1 and mur == -3)//quand cure est mur sont cooldown
 {
-	useChip(CHIP_ICE, enemy);
+	useChip(CHIP_HELMET, enemy);
 	
 }
 if (getAlliesCount() >= 1 and defenseFaible == -3)//quand helmet est cooldown
